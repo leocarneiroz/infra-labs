@@ -1,0 +1,10 @@
+apiVersion: v1          
+kind: Pod               
+metadata:
+  name: payfast-api     
+spec:
+  containers:           
+  - name: payfast         
+    image: payfast-api:v1
+    ports:
+    - containerPort: 8000 
