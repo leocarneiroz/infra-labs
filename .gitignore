@@ -1,0 +1,12 @@
+# Secrets e variáveis de ambiente
+.env
+*.env
+!.env.example
+
+# Dados locais
+data/
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
