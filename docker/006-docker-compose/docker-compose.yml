@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: payfast
+      POSTGRES_PASSWORD: payfast123
+      POSTGRES_DB: payfastdb
+    ports:
+      - "5432:5432"
+
+  api:
+    build: ../005-dockerfile-payfast
+    ports:
+      - "8082:8000"
+    depends_on:
+      - db
