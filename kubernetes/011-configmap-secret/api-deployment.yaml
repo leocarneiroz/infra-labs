@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payfast-api
+  labels:
+    app: payfast-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: payfast-api
+  template:
+    metadata:
+      labels:
+        app: payfast-api
+    spec:
+      containers:
+      - name: payfast-api
+        image: payfast-api:v1
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - configMapRef:
+            name: payfast-api-config
+        - secretRef:
+            name: payfast-api-secret
