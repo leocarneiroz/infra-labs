@@ -1,0 +1,14 @@
+[Unit]
+Description=PayFast Monitor - registra atividade a cada 5 segundos
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/leonardo_carneiro/labs/linux/013-systemd
+ExecStart=/usr/bin/python3 /home/leonardo_carneiro/labs/linux/013-systemd/monitor.py
+Restart=on-failure
+RestartSec=5
+LogsDirectory=payfast-monitor
+
+[Install]
+WantedBy=multi-user.target
